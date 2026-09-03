@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OGUNDA Group — Ifá guidance, and the path that follows it</title>
+<style>
+  :root{
+    --bone:#F7F8F6;
+    --bone-2:#ECEFEB;
+    --bone-3:#E1E6E1;
+    --deep:#114635;
+    --deep-2:#0A2C21;
+    --deep-3:#06180F;
+    --ink:#0A0C0B;
+    --sage:#7FA593;
+    --sage-lt:#B7CDC1;
+    --gold:#A8862C;
+    --gold-lt:#D8BC6A;
+    --rule:#D4DAD5;
+    --sans:"Avenir Next","Avenir","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{margin:0;background:var(--bone);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  .w{max-width:1160px;margin:0 auto;padding:0 28px}
+  a{color:var(--deep)}
+  a:focus-visible,button:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px}
+  h1,h2,h3,h4{letter-spacing:-.018em;margin:0}
+  img,svg{display:block}
+
+  /* ── header: no section menu, by design ── */
+  header{background:var(--bone);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:40}
+  header .w{display:flex;align-items:center;justify-content:space-between;min-height:70px;padding-top:10px;padding-bottom:10px;gap:16px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .glyph{width:30px;height:30px;flex:0 0 30px}
+  .brand b{font-size:18.5px;color:var(--deep);letter-spacing:.02em;font-weight:700;line-height:1.1}
+  .brand span{display:block;font-size:11.5px;color:#6C7872;letter-spacing:.1em;font-weight:600;text-transform:uppercase}
+  .hact{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .hact a.tel{text-decoration:none;font-weight:700;color:var(--deep);font-size:15.5px;font-variant-numeric:tabular-nums}
+  @media(max-width:820px){.brand b{font-size:17px}.hact{gap:12px}}
+  /* global overflow safety */
+  p,li,h1,h2,h3,h4,span,a,blockquote,td{overflow-wrap:break-word;word-break:normal}
+  svg,img{max-width:100%}
+
+  .btn{display:inline-block;padding:13px 26px;border-radius:2px;text-decoration:none;font-weight:700;font-size:15px;border:0;cursor:pointer}
+  .btn.p{background:var(--deep);color:#fff}
+  .btn.p:hover{background:var(--deep-2)}
+  .btn.s{background:transparent;color:var(--deep);border:1.5px solid var(--deep)}
+  .btn.s:hover{background:var(--bone-2)}
+  .btn.g{background:var(--gold);color:#1A1405}
+  .btn.g:hover{background:#C09B33}
+  .btn.sm{padding:10px 20px;font-size:14px}
+
+  /* ── hero ── */
+  .hero{background:var(--deep);color:#E7EFEA;padding:74px 0 78px;position:relative;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;right:-160px;top:-120px;width:620px;height:620px;border-radius:50%;
+    border:1px solid rgba(168,134,44,.28);
+  }
+  .hero::after{
+    content:"";position:absolute;right:-60px;top:-20px;width:420px;height:420px;border-radius:50%;
+    border:1px solid rgba(255,255,255,.09);
+  }
+  .heroGrid{display:grid;grid-template-columns:1.06fr .94fr;gap:56px;align-items:center;position:relative;z-index:2}
+  @media(max-width:940px){
+    .heroGrid{grid-template-columns:1fr;gap:40px}
+    .hero::before,.hero::after{display:none}
+  }
+  .kicker{font-size:12.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--gold-lt);font-weight:700;margin-bottom:16px}
+  .hero h1{font-size:clamp(32px,4.5vw,50px);line-height:1.13;color:#fff;margin-bottom:20px;font-weight:700}
+  .hero h1 em{font-style:normal;color:var(--gold-lt)}
+  .hero p.sub{font-size:18.5px;line-height:1.58;color:#B9D0C4;margin:0 0 28px;max-width:35em}
+  .heroActions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+  .heroMeta{display:flex;gap:30px;flex-wrap:wrap;padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}
+  .heroMeta div{font-size:14px;color:#9FBBAC;line-height:1.5}
+  .heroMeta b{display:block;color:#fff;font-size:15.5px;font-weight:700}
+
+  /* opon hero art */
+  .trayWrap{display:flex;justify-content:center}
+  .tray{position:relative;width:min(400px,88vw);aspect-ratio:1}
+
+  /* ── generic sections ── */
+  section{padding:74px 0;border-bottom:1px solid var(--rule)}
+  .lead{max-width:60ch;margin-bottom:38px}
+  .lead .kicker{color:var(--gold)}
+  .lead h2{font-size:clamp(26px,3.5vw,37px);color:var(--deep);line-height:1.16;margin-bottom:13px;font-weight:700}
+  .lead p{margin:0;color:#4A554E;font-size:17.2px}
+  .tint{background:var(--bone-2)}
+  .dark{background:var(--deep);color:#DCE7E1;border-bottom:none}
+  .dark .lead h2{color:#fff}
+  .dark .lead p{color:#A9C4B7}
+  .dark .lead .kicker{color:var(--gold-lt)}
+
+  /* ── story ── */
+  .story{display:grid;grid-template-columns:300px 1fr;gap:52px;align-items:start}
+  @media(max-width:900px){.story{grid-template-columns:1fr;gap:32px}}
+  .odubox{background:#fff;border:1px solid var(--rule);border-top:4px solid var(--gold);padding:26px 24px 24px;text-align:center;position:sticky;top:96px}
+  @media(max-width:900px){.odubox{position:static}}
+  .odubox svg{margin:0 auto 16px}
+  .odubox b{display:block;font-size:19px;color:var(--deep);letter-spacing:.02em}
+  .odubox span{display:block;font-size:13.6px;color:#6C7872;line-height:1.55;margin-top:8px}
+  .odubox .rule{height:1px;background:var(--rule);margin:18px 0}
+  .odubox .fact{font-size:14px;color:#37423C;line-height:1.55;text-align:left}
+  .odubox .fact b{font-size:14px;color:var(--deep);display:inline}
+
+  .storyText p{margin:0 0 19px;color:#2E3833;font-size:17px}
+  .storyText p.first::first-letter{
+    float:left;font-size:62px;line-height:.82;padding:6px 12px 0 0;color:var(--deep);font-weight:700;
+  }
+  .storyText .pull{
+    clear:both;
+    border-left:3px solid var(--gold);padding:4px 0 4px 22px;margin:28px 0;
+    font-size:21px;line-height:1.45;color:var(--deep);font-weight:600;
+  }
+  .storyText .sig{margin-top:26px;padding-top:20px;border-top:1px solid var(--rule);font-size:15px;color:#5C6862}
+  .storyText .sig b{color:var(--deep);font-size:16.5px;display:block}
+
+  /* ── how it starts: three-step flow ── */
+  .flow{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;align-items:stretch;gap:0}
+  @media(max-width:900px){.flow{grid-template-columns:1fr;gap:14px}.flow .arr{display:none}}
+  .fcard{background:#fff;border:1px solid var(--rule);padding:26px 24px;display:flex;flex-direction:column}
+  .fcard .ic{margin-bottom:16px}
+  .fcard h3{font-size:19px;color:var(--deep);margin-bottom:9px}
+  .fcard p{margin:0;font-size:15.4px;color:#4A554E;line-height:1.6}
+  .arr{display:flex;align-items:center;justify-content:center;color:var(--sage)}
+
+  .routes{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:26px}
+  .routes div{background:#fff;padding:19px 20px}
+  .routes b{display:block;color:var(--deep);font-size:15.6px;margin-bottom:6px}
+  .routes span{font-size:14.4px;color:#4A554E;line-height:1.56}
+  .routes .who{display:block;margin-top:9px;font-size:12.6px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);font-weight:700}
+
+  /* ── the two paths rail ── */
+  .rail{position:relative;margin-top:10px}
+  .rail .line{position:absolute;left:26px;top:14px;bottom:14px;width:2px;background:var(--sage-lt)}
+  .step{position:relative;padding-left:74px;padding-bottom:30px}
+  .step:last-child{padding-bottom:0}
+  .step .node{
+    position:absolute;left:0;top:0;width:54px;height:54px;border-radius:50%;
+    background:#fff;border:2px solid var(--deep);display:flex;align-items:center;justify-content:center;
+  }
+  .dark .step .node{background:var(--deep);border-color:var(--gold-lt)}
+  .dark .rail .line{background:rgba(216,188,106,.4)}
+  .step .n{
+    display:block;font-size:11.5px;letter-spacing:.14em;font-weight:700;color:var(--gold);
+    line-height:1.3;padding-top:5px;
+  }
+  .step h4{font-size:18.5px;color:var(--deep);margin:5px 0 7px;line-height:1.28}
+  .dark .step h4{color:#fff}
+  .step p{margin:0;font-size:15.4px;color:#4A554E;line-height:1.6;max-width:52ch}
+  .dark .step p{color:#A9C4B7}
+  .step .tag{display:inline-block;margin-top:9px;font-size:12.4px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;color:var(--sage);border:1px solid var(--sage);padding:3px 9px;border-radius:2px}
+  .dark .step .tag{color:var(--gold-lt);border-color:rgba(216,188,106,.55)}
+
+  .twin{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  @media(max-width:900px){.twin{grid-template-columns:1fr;gap:46px}}
+  .twinhead{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:14px;border-bottom:2px solid var(--gold)}
+  .twinhead h3{font-size:22px;color:var(--deep)}
+  .dark .twinhead h3{color:#fff}
+  .twinhead span{font-size:13.4px;color:#6C7872}
+  .dark .twinhead span{color:#9FBBAC}
+
+  /* ── membership ── */
+  .memWhy{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;margin-bottom:46px}
+  @media(max-width:900px){.memWhy{grid-template-columns:1fr;gap:30px}}
+  .memWhy p{margin:0 0 16px;color:#333D37;font-size:17px}
+  .cadence{background:#fff;border:1px solid var(--rule);padding:26px}
+  .cadence h4{font-size:16.5px;color:var(--deep);margin-bottom:16px}
+  .cadence ol{margin:0;padding-left:20px}
+  .cadence li{font-size:15px;color:#4A554E;line-height:1.55;margin-bottom:10px}
+  .cadence li b{color:var(--deep)}
+
+  .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:20px}
+  .tier{background:#fff;border:1px solid var(--rule);display:flex;flex-direction:column}
+  .tier.feature{border:2px solid var(--deep);box-shadow:0 10px 34px rgba(17,70,53,.09)}
+  .tier .top{padding:24px 24px 20px;border-bottom:1px solid var(--rule);text-align:center}
+  .tier.feature .top{background:var(--deep);border-bottom:none}
+  .tier .top svg{margin:0 auto 14px}
+  .tier h3{font-size:21px;color:var(--deep)}
+  .tier.feature h3{color:#fff}
+  .tier .who{font-size:13.8px;color:#6C7872;margin-top:7px;line-height:1.5}
+  .tier.feature .who{color:#A9C4B7}
+  .tier .badge{display:inline-block;background:var(--gold);color:#1A1405;font-size:11.4px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:4px 10px;margin-bottom:14px}
+  .tier ul{list-style:none;margin:0;padding:22px 24px;flex:1}
+  .tier li{position:relative;padding-left:24px;margin-bottom:12px;font-size:15px;color:#3A453F;line-height:1.55}
+  .tier li::before{content:"";position:absolute;left:0;top:8px;width:9px;height:9px;border-radius:50%;background:var(--sage)}
+  .tier.feature li::before{background:var(--gold)}
+  .tier .foot{padding:0 24px 24px}
+  .tier .foot a{width:100%;text-align:center}
+  .memNote{margin-top:24px;font-size:14.6px;color:#5C6862;line-height:1.6;max-width:80ch}
+
+  /* ── house / associates ── */
+  .house{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18)}
+  .house div{background:var(--deep);padding:24px 22px}
+  .house svg{margin-bottom:14px}
+  .house b{display:block;color:#fff;font-size:17px;margin-bottom:8px}
+  .house span{font-size:14.8px;color:#A9C4B7;line-height:1.6}
+
+  /* ── testimony ── */
+  .tst{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:20px}
+  .tst figure{margin:0;background:#fff;border:1px solid var(--rule);border-top:3px solid var(--sage);padding:24px}
+  .tst blockquote{margin:0 0 13px;font-size:16px;line-height:1.6;color:#2C3630}
+  .tst figcaption{font-size:13.3px;color:#6C7872}
+  .sample{background:#FBF3D5;border:1px solid var(--gold);color:#6B5518;padding:13px 17px;margin-bottom:24px;font-size:14.2px;line-height:1.56}
+
+  /* ── contact ── */
+  .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:30px;margin-bottom:34px}
+  .cgrid b{display:block;font-size:12.6px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:9px;font-weight:700}
+  .cgrid span,.cgrid a{display:block;color:#EAF1ED;font-size:16px;line-height:1.6;text-decoration:none}
+  .cgrid a.big{font-size:22px;font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
+  .cgrid a:hover{color:#fff;text-decoration:underline}
+  .cgrid em{display:block;font-style:normal;font-size:13.8px;color:#8FB4A2;margin-top:7px;line-height:1.5}
+
+  footer{background:var(--deep-3);color:#7E9288;padding:36px 0 46px;font-size:13.2px;line-height:1.68}
+  footer p{margin:0 0 12px;max-width:94ch}
+</style>
+</head>
+<body>
+
+<!-- ══ SYMBOL LIBRARY: original geometric renderings, no third-party artwork ══ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- opele: divining chain, four discs per arm -->
+    <symbol id="s-opele" viewBox="0 0 40 40">
+      <path d="M20 4 L20 13 M20 13 L11 20 L11 36 M20 13 L29 20 L29 36" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <ellipse cx="11" cy="22" rx="3" ry="2.2" fill="currentColor"/><ellipse cx="11" cy="27.5" rx="3" ry="2.2" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <ellipse cx="11" cy="33" rx="3" ry="2.2" fill="currentColor"/>
+      <ellipse cx="29" cy="22" rx="3" ry="2.2" fill="none" stroke="currentColor" stroke-width="1.3"/><ellipse cx="29" cy="27.5" rx="3" ry="2.2" fill="currentColor"/>
+      <ellipse cx="29" cy="33" rx="3" ry="2.2" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="20" cy="5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    </symbol>
+    <!-- ikin: sixteen palm nuts -->
+    <symbol id="s-ikin" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".45"/>
+      <g fill="currentColor">
+        <circle cx="20" cy="7" r="2.1"/><circle cx="26.5" cy="8.7" r="2.1"/><circle cx="31.3" cy="13.5" r="2.1"/><circle cx="33" cy="20" r="2.1"/>
+        <circle cx="31.3" cy="26.5" r="2.1"/><circle cx="26.5" cy="31.3" r="2.1"/><circle cx="20" cy="33" r="2.1"/><circle cx="13.5" cy="31.3" r="2.1"/>
+        <circle cx="8.7" cy="26.5" r="2.1"/><circle cx="7" cy="20" r="2.1"/><circle cx="8.7" cy="13.5" r="2.1"/><circle cx="13.5" cy="8.7" r="2.1"/>
+        <circle cx="16.5" cy="17" r="1.7"/><circle cx="23.5" cy="17" r="1.7"/><circle cx="16.5" cy="23.5" r="1.7"/><circle cx="23.5" cy="23.5" r="1.7"/>
+      </g>
+    </symbol>
+    <!-- tray -->
+    <symbol id="s-tray" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="2.6"/>
+      <circle cx="20" cy="20" r="11" fill="none" stroke="currentColor" stroke-width="1" opacity=".55"/>
+      <g stroke="currentColor" stroke-width="1.5">
+        <path d="M20 3.4v4"/><path d="M20 32.6v4"/><path d="M3.4 20h4"/><path d="M32.6 20h4"/>
+        <path d="M8.3 8.3l2.8 2.8" opacity=".6"/><path d="M31.7 8.3l-2.8 2.8" opacity=".6"/>
+        <path d="M8.3 31.7l2.8-2.8" opacity=".6"/><path d="M31.7 31.7l-2.8-2.8" opacity=".6"/>
+      </g>
+      <circle cx="20" cy="20" r="2.6" fill="currentColor"/>
+    </symbol>
+    <!-- elekes: strand of beads -->
+    <symbol id="s-beads" viewBox="0 0 40 40">
+      <path d="M20 6 C7 10 6 26 20 34 C34 26 33 10 20 6Z" fill="none" stroke="currentColor" stroke-width="1.1" opacity=".4"/>
+      <g fill="currentColor">
+        <circle cx="20" cy="6.4" r="2.2"/><circle cx="12.8" cy="9.6" r="2.2"/><circle cx="8.4" cy="16" r="2.2"/><circle cx="8.8" cy="23.6" r="2.2"/>
+        <circle cx="14" cy="30" r="2.2"/><circle cx="20" cy="33.6" r="2.2"/><circle cx="26" cy="30" r="2.2"/><circle cx="31.2" cy="23.6" r="2.2"/>
+        <circle cx="31.6" cy="16" r="2.2"/><circle cx="27.2" cy="9.6" r="2.2"/>
+      </g>
+    </symbol>
+    <!-- warriors: four implements -->
+    <symbol id="s-warriors" viewBox="0 0 40 40">
+      <path d="M7 34 L7 20 C7 15 11 12 11 12 C11 12 15 15 15 20 L15 34Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M20 34 L20 14 M16.5 18 L20 14 L23.5 18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M27 34 L27 22 M27 22 L31.5 15 M27 22 L33 20" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="30" cy="30" r="3.2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    </symbol>
+    <!-- orula: idefa bracelet + hand -->
+    <symbol id="s-orula" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-dasharray="4.5 3.4"/>
+      <path d="M20 12 L20 26 M15 15 L15 24 M25 15 L25 24" stroke="currentColor" stroke-width="1.5" fill="none"/>
+    </symbol>
+    <!-- crown / kariocha -->
+    <symbol id="s-crown" viewBox="0 0 40 40">
+      <path d="M7 30 L7 14 L13.5 20 L20 10 L26.5 20 L33 14 L33 30Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M7 33.5 H33" stroke="currentColor" stroke-width="1.6"/>
+      <circle cx="20" cy="24.5" r="2" fill="currentColor"/>
+    </symbol>
+    <!-- iron / ogun -->
+    <symbol id="s-iron" viewBox="0 0 40 40">
+      <path d="M6 26 L18 14 M14 10 L26 22" stroke="currentColor" stroke-width="1.8" fill="none"/>
+      <path d="M22 8 L32 8 L32 18" stroke="currentColor" stroke-width="1.8" fill="none"/>
+      <path d="M12 34 L28 34 M20 34 L20 26" stroke="currentColor" stroke-width="1.8" fill="none"/>
+    </symbol>
+    <!-- house / ile -->
+    <symbol id="s-house" viewBox="0 0 40 40">
+      <path d="M6 18 L20 7 L34 18 L34 33 L6 33Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M16 33 V23 h8 v10" fill="none" stroke="currentColor" stroke-width="1.4"/>
+    </symbol>
+    <!-- key / credit -->
+    <symbol id="s-key" viewBox="0 0 40 40">
+      <circle cx="14" cy="16" r="7" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M19 21 L31 33 M26 28 L30 24 M22 24 L26 20" stroke="currentColor" stroke-width="1.7" fill="none"/>
+    </symbol>
+    <!-- growth -->
+    <symbol id="s-growth" viewBox="0 0 40 40">
+      <path d="M6 32 L15 22 L22 27 L34 11" fill="none" stroke="currentColor" stroke-width="1.9"/>
+      <path d="M26 11 h8 v8" fill="none" stroke="currentColor" stroke-width="1.7"/>
+    </symbol>
+    <!-- road -->
+    <symbol id="s-road" viewBox="0 0 40 40">
+      <path d="M12 35 L17 6 M28 35 L23 6" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M20 30 v-5 M20 21 v-5 M20 12 v-4" stroke="currentColor" stroke-width="1.7" fill="none"/>
+    </symbol>
+    <!-- arrow -->
+    <symbol id="s-arrow" viewBox="0 0 24 24">
+      <path d="M3 12 h16 M14 7 l5 5 -5 5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="w">
+    <div class="brand">
+      <svg class="glyph" style="color:var(--deep)"><use href="#s-tray"/></svg>
+      <div><b>OGUNDA GROUP</b><span>Ilé Ifá · Costa Mesa &amp; Downey</span></div>
+    </div>
+    <div class="hact">
+      <a class="tel" href="tel:+15624418183">562-441-8183</a>
+      <a class="btn p sm" href="#contact">Request a reading</a>
+    </div>
+  </div>
+</header>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="w heroGrid">
+    <div>
+      <div class="kicker">Ifá · Òrìṣà · Eighteen years of practice</div>
+      <h1>It begins with a reading.<br><em>What follows is a path.</em></h1>
+      <p class="sub">Ramon Casillas is a babaláwo. A reading opens the door — and what surfaces in it is rarely only spiritual. Debt surfaces. Property surfaces. A business that is quietly bleeding surfaces. This house is built to take all of it seriously, and to hand each part to the right person under one roof.</p>
+      <div class="heroActions">
+        <a class="btn g" href="#contact">Request a reading</a>
+        <a class="btn s" style="color:#fff;border-color:rgba(255,255,255,.5)" href="#path">See the path of Ifá</a>
+      </div>
+      <div class="heroMeta">
+        <div><b>18 years</b>Practicing Ifá</div>
+        <div><b>Ogundá Masa</b>The itá he was given</div>
+        <div><b>Two houses</b>Costa Mesa · Downey</div>
+      </div>
+    </div>
+    <div class="trayWrap">
+      <div class="tray"><svg viewBox="0 0 400 400" role="img" aria-label="A divining tray marked at its border, with the sixteen palm nuts at its centre, and four axes: spirit, work, legacy and home.">
+        <!-- tray body: outer edge r=150, so nothing reaches past x/y 50–350 -->
+        <circle cx="200" cy="200" r="150" fill="rgba(255,255,255,.045)" stroke="#D8BC6A" stroke-width="2"/>
+        <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(255,255,255,.20)" stroke-width="1"/>
+        <g id="hmarks" stroke="#D8BC6A" stroke-width="2"></g>
+        <g stroke="rgba(255,255,255,.26)" stroke-width="1">
+          <path d="M200 82 V318"/><path d="M82 200 H318"/>
+        </g>
+        <circle cx="200" cy="200" r="74" fill="#0F3F2F" stroke="rgba(255,255,255,.22)"/>
+        <g style="color:#D8BC6A"><use href="#s-ikin" x="158" y="158" width="84" height="84"/></g>
+        <!-- axis labels: kept outside r=150 with clearance on every side -->
+        <g fill="rgba(255,255,255,.66)" font-family="Avenir Next,Avenir,Helvetica,Arial" font-size="12" letter-spacing="2.8">
+          <text x="200" y="20" text-anchor="middle">SPIRIT</text>
+          <text x="200" y="388" text-anchor="middle">LEGACY</text>
+          <text x="2" y="204" text-anchor="start">HOME</text>
+          <text x="398" y="204" text-anchor="end">WORK</text>
+        </g>
+      </svg></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STORY ══ -->
+<section id="story">
+  <div class="w">
+    <div class="lead">
+      <div class="kicker">The babaláwo</div>
+      <h2>Ramon Casillas</h2>
+      <p>He did not choose this early, and he did not choose it easily. That is worth knowing before you sit down with him.</p>
+    </div>
+    <div class="story">
+      <aside class="odubox">
+        <svg width="120" height="140" viewBox="0 0 120 140" role="img" aria-label="The odù sign Ogundá Masa, rendered as two columns of marks.">
+          <rect x="2" y="2" width="116" height="136" fill="none" stroke="#D4DAD5"/>
+          <!-- right leg: Ogundá (single, single, single, double) -->
+          <g fill="#114635">
+            <rect x="72" y="20" width="7" height="20" rx="1"/>
+            <rect x="72" y="50" width="7" height="20" rx="1"/>
+            <rect x="72" y="80" width="7" height="20" rx="1"/>
+            <rect x="64" y="110" width="7" height="20" rx="1"/><rect x="80" y="110" width="7" height="20" rx="1"/>
+          </g>
+          <!-- left leg: Osá (double, single, single, single) -->
+          <g fill="#114635">
+            <rect x="33" y="20" width="7" height="20" rx="1"/><rect x="49" y="20" width="7" height="20" rx="1"/>
+            <rect x="41" y="50" width="7" height="20" rx="1"/>
+            <rect x="41" y="80" width="7" height="20" rx="1"/>
+            <rect x="41" y="110" width="7" height="20" rx="1"/>
+          </g>
+        </svg>
+        <b>OGUNDÁ MASA</b>
+        <span>The sign given to him at itá. It names the road he was put on, and the house takes its name from it.</span>
+        <div class="rule"></div>
+        <p class="fact"><b>Practising since</b> — 18 years in Ifá.<br><b>Consults from</b> — Costa Mesa, and the Downey spiritual haven.<br><b>Walks the full road</b> — from a first reading to full initiation, for those the tradition calls.</p>
+      </aside>
+
+      <div class="storyText">
+        <p class="first">He was a troubled kid. That is the plain version, and he does not dress it up. What he could not explain to anyone at the time was that things kept happening around him — things he felt before they arrived, things he knew without being told. He had no framework for any of it. No elder, no house, no language. So it frightened him, and he did what frightened people do with a gift they cannot name: he pushed it away and got on with his life.</p>
+
+        <p>Spirituality did not accept the dismissal. It followed him. Through the years he spent building something else, through the work, through the ordinary business of getting older, it stayed at the edge of the room and waited.</p>
+
+        <p>The something else was real estate. He learned how property is valued and how it is financed. He learned what a credit file does to a person's options, how a deal is structured, where the margin sits and who is taking it. He built a working knowledge of the material world that most people never acquire — and he built it before he had any spiritual training at all.</p>
+
+        <p class="pull">Then he came near death. And when there was nothing else on the table, the answer that came back was Ifá — not as an interest, but as the road, and the priesthood as the walk.</p>
+
+        <p>He took it. That was eighteen years ago. Since then he has served as a babaláwo, and the sign he received at itá — <strong>Ogundá Masa</strong> — is the one this house is named for.</p>
+
+        <p>What that history produced is unusual. Most people who can read for you cannot read a settlement statement. Most people who can read a settlement statement have nothing to say about your orí. Ramon spent years in each world, in that order, and can move between them without confusing the two — which matters, because they are not the same thing and must never be sold as if they were.</p>
+
+        <p>He can also take someone the whole distance. From a first reading, through the receiving of elekes and the warriors, to Orula, and — where Ifá indicates it and the person is truly ready — through initiation into the priesthood itself. Not everyone is meant for that road. He will tell you honestly which part of it is yours.</p>
+
+        <div class="sig"><b>Ramon Casillas</b>Babaláwo · Ogundá Masa · OGUNDA Group</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ══ -->
+<section class="tint" id="how">
+  <div class="w">
+    <div class="lead">
+      <div class="kicker">How the house works</div>
+      <h2>One reading. Then the right person for each thing it surfaces.</h2>
+      <p>Nothing is diagnosed at you and nothing is sold in the room. The reading tells you what is in front of you. Where part of it is material rather than spiritual, you are introduced to the associate who handles that, and you are free to decline without anything changing.</p>
+    </div>
+
+    <div class="flow">
+      <div class="fcard">
+        <svg class="ic" width="40" height="40" style="color:var(--deep)"><use href="#s-opele"/></svg>
+        <h3>1 · The reading</h3>
+        <p>Ifá is consulted through the opèlè or the ikin. An odù speaks, and it is read for your situation — not a general fortune, but your particular road, with what supports it and what obstructs it.</p>
+      </div>
+      <div class="arr"><svg width="24" height="24"><use href="#s-arrow"/></svg></div>
+      <div class="fcard">
+        <svg class="ic" width="40" height="40" style="color:var(--deep)"><use href="#s-tray"/></svg>
+        <h3>2 · What it surfaces</h3>
+        <p>Some of it is spiritual and is answered spiritually — ẹbọ, cleansing, ancestral work, a step on the road. Some of it is not. Debt is not a spiritual condition. Neither is an underwritten property or a company without books.</p>
+      </div>
+      <div class="arr"><svg width="24" height="24"><use href="#s-arrow"/></svg></div>
+      <div class="fcard">
+        <svg class="ic" width="40" height="40" style="color:var(--deep)"><use href="#s-road"/></svg>
+        <h3>3 · The right hands</h3>
+        <p>What is material goes to the associate who does that work — in writing, with no pressure and no condition attached. Your standing in this house does not depend on whether you take the introduction.</p>
+      </div>
+    </div>
+
+    <div class="routes">
+      <div><b>Ceremony &amp; the road</b><span>Ẹbọ, cleansing, ancestral and lineage work, rites of passage.</span><span class="who">Ramon Casillas · Babaláwo</span></div>
+      <div><b>Credit</b><span>File review, optimisation, credit development, business credit under an EIN.</span><span class="who">Credit associate</span></div>
+      <div><b>Property</b><span>Acquisition screening, ADU feasibility, value-add, portfolio review.</span><span class="who">Real assets associate</span></div>
+      <div><b>Business &amp; vehicles</b><span>Formation, planning, operations, capital readiness, vehicle purchase education.</span><span class="who">Advisory associate</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THE TWO PATHS ══ -->
+<section class="dark" id="path">
+  <div class="w">
+    <div class="lead">
+      <div class="kicker">The road, in order</div>
+      <h2>Two paths, walked at the same time</h2>
+      <p>On the left, the path of Ifá as the tradition orders it. On the right, the material path most people are actually on. The house walks both — and never confuses one for the other.</p>
+    </div>
+
+    <div class="twin">
+      <!-- SPIRITUAL -->
+      <div>
+        <div class="twinhead">
+          <svg width="30" height="30" style="color:var(--gold-lt)"><use href="#s-ikin"/></svg>
+          <div><h3>The path of Ifá</h3><span>Each step by indication and readiness — never by schedule</span></div>
+        </div>
+        <div class="rail">
+          <div class="line" aria-hidden="true"></div>
+
+          <div class="step">
+            <div class="node"><svg width="26" height="26" style="color:var(--gold-lt)"><use href="#s-opele"/></svg></div>
+            <div class="n">STEP ONE</div>
+            <h4>Registro — the first reading</h4>
+            <p>Where everyone begins. No commitment follows from it and no obligation is created by it.</p>
+            <span class="tag">Open to anyone</span>
+          </div>
+
+          <div class="step">
+            <div class="node"><svg width="26" height="26" style="color:var(--gold-lt)"><use href="#s-beads"/></svg></div>
+            <div class="n">STEP TWO</div>
+            <h4>Elekes — the consecrated beads</h4>
+            <p>The first formal tie to a house and to the òrìṣà who walk with you. Protection, and a beginning.</p>
+          </div>
+
+          <div class="step">
+            <div class="node"><svg width="26" height="26" style="color:var(--gold-lt)"><use href="#s-warriors"/></svg></div>
+            <div class="n">STEP THREE</div>
+            <h4>Los Guerreros — the warriors</h4>
+            <p>Elegua, Ogún, Ochosi and Osun received into your home. The road opened, cleared, aimed and watched.</p>
+          </div>
+
+          <div class="step">
+            <div class="node"><svg width="26" height="26" style="color:var(--gold-lt)"><use href="#s-orula"/></svg></div>
+            <div class="n">STEP FOUR</div>
+            <h4>Mano de Orula · Ikofá</h4>
+            <p>Three days, and a minimum of three babaláwos. You receive Orula and your itá — the sign that names your odù and your road, as Ogundá Masa named his.</p>
+            <span class="tag">The turning point</span>
+          </div>
+
+          <div class="step">
+            <div class="node"><svg width="26" height="26" style="color:var(--gold-lt)"><use href="#s-crown"/></svg></div>
+            <div class="n">STEP FIVE</div>
+            <h4>Kariocha — the crowning</h4>
+            <p>Full initiation to the priesthood of your òrìṣà, followed by the year of iyawó. Undertaken only where itá indicates it — which is rarely the first time anyone asks.</p>
+          </div>
+
+          <div class="step">
+            <div class="node"><svg width="26" height="26" style="color:var(--gold-lt)"><use href="#s-tray"/></svg></div>
+            <div class="n">STEP SIX</div>
+            <h4>Itefá — the priesthood of Ifá</h4>
+            <p>Initiation as a babaláwo. Not something bought and not something scheduled. A calling the house confirms, or does not — and Ramon has walked this whole road himself.</p>
+            <span class="tag">By calling</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATERIAL -->
+      <div>
+        <div class="twinhead">
+          <svg width="30" height="30" style="color:var(--gold-lt)"><use href="#s-growth"/></svg>
+          <div><h3>The path of the life</h3><span>Handled by the associates, under separate agreement</span></div>
+        </div>
+        <div class="rail">
+          <div class="line" aria-hidden="true"></div>
+
+          <div class="step">
+            <div class="node"><svg width="26" height="26" style="color:var(--gold-lt)"><use href="#s-tray"/></svg></div>
+            <div class="n">STAGE ONE</div>
+            <h4>See it clearly</h4>
+            <p>What is actually true — income, obligations, what you own, what owns you. Most people have never once seen it written down in one place.</p>
+          </div>
+
+          <div class="step">
+            <div class="node"><svg width="26" height="26" style="color:var(--gold-lt)"><use href="#s-key"/></svg></div>
+            <div class="n">STAGE TWO</div>
+            <h4>Steady the ground</h4>
+            <p>The credit file reviewed and corrected. Obligations ordered. The bleeding stopped before anything is built on top of it.</p>
+          </div>
+
+          <div class="step">
+            <div class="node"><svg width="26" height="26" style="color:var(--gold-lt)"><use href="#s-iron"/></svg></div>
+            <div class="n">STAGE THREE</div>
+            <h4>Build the instrument</h4>
+            <p>Credit developed with intent. An entity formed properly. Business credit established under the EIN so the enterprise can stand on its own name.</p>
+          </div>
+
+          <div class="step">
+            <div class="node"><svg width="26" height="26" style="color:var(--gold-lt)"><use href="#s-house"/></svg></div>
+            <div class="n">STAGE FOUR</div>
+            <h4>Acquire</h4>
+            <p>The first property, or the next one. Screened, modelled and stress-tested before an offer — including what an ADU or a value-add would actually return.</p>
+          </div>
+
+          <div class="step">
+            <div class="node"><svg width="26" height="26" style="color:var(--gold-lt)"><use href="#s-growth"/></svg></div>
+            <div class="n">STAGE FIVE</div>
+            <h4>Compound</h4>
+            <p>One asset becomes a portfolio. One venture becomes an operation with books, systems and people. Reviewed on a cadence rather than in a crisis.</p>
+          </div>
+
+          <div class="step">
+            <div class="node"><svg width="26" height="26" style="color:var(--gold-lt)"><use href="#s-road"/></svg></div>
+            <div class="n">STAGE SIX</div>
+            <h4>Leave a road behind</h4>
+            <p>Structure that outlives you — held properly, transferred deliberately, and understood by the people who will inherit it. The same word the tradition uses: legacy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MEMBERSHIP ══ -->
+<section id="membership">
+  <div class="w">
+    <div class="lead">
+      <div class="kicker">Membership</div>
+      <h2>A house you belong to, not a service you buy once</h2>
+      <p>Most people meet a reader once in a hard month, act on it or don't, and are never seen again. Membership exists because that is the least useful way to use this tradition — and because guidance only compounds when it is continuous.</p>
+    </div>
+
+    <div class="memWhy">
+      <div>
+        <p><strong>The twenty-one day cadence is the centre of it.</strong> Three weeks is long enough for something to have actually happened, and short enough that a road can still be corrected before it hardens. It is the rhythm the house keeps.</p>
+        <p>Every member sitting is recorded in writing. Over a year that record becomes something no single reading can give you: a document of what was said, what you did about it, and what followed. Members read their own year back and see the pattern themselves.</p>
+        <p>Membership also changes how the house holds you. Members are known. When something breaks at an awkward hour, you are not a stranger writing to an inbox — and when a material issue surfaces, the introduction to the right associate is already warm.</p>
+      </div>
+      <div class="cadence">
+        <h4>What a membership year looks like</h4>
+        <ol>
+          <li><b>Day one</b> — an opening registro and the year's direction set down in writing.</li>
+          <li><b>Every 21 days</b> — a member sitting. Roughly seventeen across the year.</li>
+          <li><b>Between sittings</b> — the ẹbọ or observances indicated, and someone to ask when you are unsure.</li>
+          <li><b>Monthly</b> — community observance at the house. Open to members and their families.</li>
+          <li><b>At the year's turn</b> — a reading for the year ahead, and the whole record bound and given to you.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="top">
+          <svg width="38" height="38" style="color:var(--deep)"><use href="#s-beads"/></svg>
+          <h3>Threshold</h3>
+          <div class="who">For those beginning, or still deciding</div>
+        </div>
+        <ul>
+          <li>Standing in the house and a place at monthly observance</li>
+          <li>Two registros across the year</li>
+          <li>Member scheduling ahead of general enquiries</li>
+          <li>Teaching sessions on the tradition and its rites</li>
+          <li>Introduction to an associate when something material surfaces</li>
+        </ul>
+        <div class="foot"><a class="btn s sm" href="#contact">Enquire</a></div>
+      </div>
+
+      <div class="tier feature">
+        <div class="top">
+          <span class="badge">Most members</span>
+          <svg width="38" height="38" style="color:var(--gold-lt)"><use href="#s-opele"/></svg>
+          <h3>Alignment</h3>
+          <div class="who">The 21-day cadence — the working membership</div>
+        </div>
+        <ul>
+          <li><strong>A registro every 21 days</strong>, roughly seventeen a year</li>
+          <li>Written record of every sitting, bound and given to you annually</li>
+          <li>Letter of the year — a reading for the year ahead</li>
+          <li>Member rate on ceremonial work and materials</li>
+          <li>Direct line between sittings for what cannot wait</li>
+          <li>Priority when a rite of passage is indicated</li>
+          <li>Standing introduction to the credit, property and business associates</li>
+        </ul>
+        <div class="foot"><a class="btn p sm" href="#contact">Request a reading to begin</a></div>
+      </div>
+
+      <div class="tier">
+        <div class="top">
+          <svg width="38" height="38" style="color:var(--deep)"><use href="#s-crown"/></svg>
+          <h3>Ọmọ</h3>
+          <div class="who">For godchildren and those on the road to initiation</div>
+        </div>
+        <ul>
+          <li>Everything in Alignment</li>
+          <li>Preparation and guidance through each rite of passage in order</li>
+          <li>Ceremonial credits applied to the road ahead</li>
+          <li>Household readings and premises blessings included</li>
+          <li>Direct access to Ramon, and first call on the calendar</li>
+          <li>Coordinated review across the spiritual and material path together</li>
+        </ul>
+        <div class="foot"><a class="btn s sm" href="#contact">Enquire</a></div>
+      </div>
+    </div>
+
+    <p class="memNote">Membership covers guidance, sittings and standing in the house. Ceremonial work and materials are quoted separately in writing before anything is undertaken, as the tradition's own practice requires. Membership can be ended at any time and no step on the path of Ifá is ever conditional on holding one. A sliding-scale reading is kept available each month for anyone who needs it — ask, and it is given without explanation required.</p>
+  </div>
+</section>
+
+<!-- ══ THE HOUSE ══ -->
+<section class="dark" id="house">
+  <div class="w">
+    <div class="lead">
+      <div class="kicker">Under one roof, in separate hands</div>
+      <h2>The associates</h2>
+      <p>The spiritual practice and the advisory firms are separate companies with their own agreements. That separation is deliberate and it protects you: no advisory service is ever a condition of your spiritual standing, and no spiritual authority is ever used to sell you anything.</p>
+    </div>
+    <div class="house">
+      <div>
+        <svg width="34" height="34" style="color:var(--gold-lt)"><use href="#s-ikin"/></svg>
+        <b>OGUNDA Ilé</b>
+        <span>The religious practice. Divination, ceremony, ancestral and lineage work, rites of passage, membership and community. Led by Ramon Casillas.</span>
+      </div>
+      <div>
+        <svg width="34" height="34" style="color:var(--gold-lt)"><use href="#s-key"/></svg>
+        <b>Credit &amp; business</b>
+        <span>File review, optimisation, credit development, business credit, formation, planning and operations. Written agreement, a three-day right to cancel, and no fee taken before the work is done.</span>
+      </div>
+      <div>
+        <svg width="34" height="34" style="color:var(--gold-lt)"><use href="#s-house"/></svg>
+        <b>Real assets</b>
+        <span>Acquisition screening, ADU and JADU feasibility, value-add modelling and portfolio review. Quoted per property, before an offer is ever written.</span>
+      </div>
+      <div>
+        <svg width="34" height="34" style="color:var(--gold-lt)"><use href="#s-road"/></svg>
+        <b>How a referral works</b>
+        <span>You receive it in writing, with the common ownership named, a clear statement that you may use anyone else, and three days before it is raised again. Declining changes nothing.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONY ══ -->
+<section id="testimony">
+  <div class="w">
+    <div class="lead">
+      <div class="kicker">From the house</div>
+      <h2>What members say</h2>
+      <p>And what none of them says: that a ceremony produced a financial result. That claim is not one this house will make or publish.</p>
+    </div>
+    <div class="sample"><strong>Sample copy.</strong> Written to show the correct register — replace each with a real, attributable statement collected with written permission.</div>
+    <div class="tst">
+      <figure><blockquote>“Two other readers told me something was wrong with me that only they could fix, and both wanted more the second time. Ramon told me what the odù said, told me what part of it was not spiritual at all, and left it with me.”</blockquote><figcaption>M.R. — member since [year]</figcaption></figure>
+      <figure><blockquote>“The written record is what I did not expect. Two years in I can read what I was told in March against what I actually did about it. That has changed my decisions more than any single sitting.”</blockquote><figcaption>A.O. — Alignment member</figcaption></figure>
+      <figure><blockquote>“He walked me from my first reading all the way to receiving Orula, and never once rushed a step or quoted me a price I had not already seen.”</blockquote><figcaption>J.A. — godchild of the house</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section class="dark" id="contact">
+  <div class="w">
+    <div class="lead">
+      <div class="kicker">Begin</div>
+      <h2>Request a reading</h2>
+      <p>Call, or send a request and you will be answered directly. Readings are held at Costa Mesa, or at the Downey spiritual haven — the Downey address is provided once your request is received.</p>
+    </div>
+    <div class="cgrid">
+      <div>
+        <b>Speak to Ramon</b>
+        <a class="big" href="tel:+15624418183">562-441-8183</a>
+        <em>Call or text. You will speak with the babaláwo, not an assistant.</em>
+      </div>
+      <div>
+        <b>Costa Mesa</b>
+        <span>650 Town Center Drive<br>Costa Mesa, California</span>
+        <em>By appointment.</em>
+      </div>
+      <div>
+        <b>Downey spiritual haven</b>
+        <span>Address provided once your request is received</span>
+        <em>Ceremonial work and rites of passage are held here.</em>
+      </div>
+      <div>
+        <b>Community observance</b>
+        <span>Monthly at the house</span>
+        <em>Open to anyone. Come and sit before deciding anything.</em>
+      </div>
+    </div>
+    <a class="btn g" href="tel:+15624418183">Call 562-441-8183</a>
+  </div>
+</section>
+
+<footer>
+  <div class="w">
+    <p><strong>OGUNDA Group</strong> · Ramon Casillas, Babaláwo · Ogundá Masa · Costa Mesa and Downey, California · 562-441-8183</p>
+    <p>Services offered by OGUNDA Ilé are religious and ceremonial in nature. Fees are for the performance of ceremony and for materials, and are stated in full and in writing before any work begins. No spiritual, financial, health, legal or personal outcome is promised or guaranteed. These services are not a substitute for medical, psychological, legal or financial care.</p>
+    <p>The credit, business and real estate advisory services described here are provided by separate companies under common ownership, under their own written agreements. Credit services are provided under a written contract including a statement of your rights and a three-day right to cancel, and no fee is collected until services are fully performed. Nothing about a person’s standing in the Ilé depends on whether they engage any of these firms.</p>
+  </div>
+</footer>
+
+<script>
+  // Border marks around the opón, drawn rather than decorated.
+  (function(){
+    var g = document.getElementById('hmarks');
+    if(!g) return;
+    var n = 48, cx = 200, cy = 200, r1 = 150, r2 = 139;
+    var out = '';
+    for(var i=0;i<n;i++){
+      var a = (i*(2*Math.PI/n)) - Math.PI/2;
+      var inner = (i % 3 === 0) ? 131 : r2;
+      out += '<path d="M'+(cx+Math.cos(a)*r1).toFixed(1)+' '+(cy+Math.sin(a)*r1).toFixed(1)+
+             ' L'+(cx+Math.cos(a)*inner).toFixed(1)+' '+(cy+Math.sin(a)*inner).toFixed(1)+'" opacity="'+((i%3===0)?'1':'.5')+'"/>';
+    }
+    g.innerHTML = out;
+  })();
+</script>
+
+</body>
+</html>
